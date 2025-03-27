@@ -1,5 +1,6 @@
 using  Api.Persistence;
-
+using Api.Application;
+using Api.Mapper;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -20,6 +21,10 @@ builder.Configuration.SetBasePath(env.ContentRootPath)
     ;
 
 builder.Services.AddPersistence(builder.Configuration);
+builder.Services.AddApplication();
+builder.Services.AddCustomMapper();
+
+
 
 var app = builder.Build();
 
