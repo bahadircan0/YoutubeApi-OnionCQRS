@@ -1,5 +1,6 @@
 using  Api.Persistence;
 using Api.Application;
+using Api.Infrastructure;
 using Api.Mapper;
 using Api.Application.Exceptions;
 var builder = WebApplication.CreateBuilder(args);
@@ -24,7 +25,7 @@ builder.Configuration.SetBasePath(env.ContentRootPath)
 builder.Services.AddPersistence(builder.Configuration);
 builder.Services.AddApplication();
 builder.Services.AddCustomMapper();
-
+builder.Services.AddInfrastructure(builder.Configuration);
 
 
 var app = builder.Build();
