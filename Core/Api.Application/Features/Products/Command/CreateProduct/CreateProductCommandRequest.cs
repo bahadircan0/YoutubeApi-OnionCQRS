@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Api.Application.Features.Products.Command.CreateProduct
 {
-    public class CreateProductCommandRequest :IRequest<Unit>
+    public class CreateProductCommandRequest : IRequest<Unit>
     {
 
         public string Title { get; set; }

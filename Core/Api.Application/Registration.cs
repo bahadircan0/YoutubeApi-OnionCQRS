@@ -1,5 +1,7 @@
-﻿using Api.Application.Beheviors;
+﻿using Api.Application.Bases;
+using Api.Application.Beheviors;
 using Api.Application.Exceptions;
+using Api.Application.Features.Products.Rules;
 using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,6 +20,7 @@ namespace Api.Application
         public static void AddApplication(this IServiceCollection services)
         {
             var assembly = Assembly.GetExecutingAssembly();
+            services.AddRulesFromAssemblyContaining(assembly, typeof(BaseRules));
 
             services.AddTransient<ExceptionMiddleware>();
             services.AddMediatR(cfg =>cfg.RegisterServicesFromAssembly(assembly));
@@ -26,5 +29,19 @@ namespace Api.Application
 
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(FluentValidationBehevior<,>));
         }
+
+        private static IServiceCollection AddRulesFromAssemblyContaining(this IServiceCollection services,Assembly assembly,Type type)
+        {
+            var types = assembly.GetTypes().Where(t=>t.IsSubclassOf(type) && type != t).ToList();
+
+            foreach(var item in types)
+            {
+                services.AddTransient(item);
+            }
+            return services;
+        }
+
+
+
     }
 }

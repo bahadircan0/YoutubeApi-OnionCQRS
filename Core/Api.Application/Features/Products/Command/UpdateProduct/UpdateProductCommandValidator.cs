@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Api.Application.Features.Products.Command.UpdateProduct
 {
-    public class UpdateProductCommandValidator :AbstractValidator<UpdateProductCommandRequest>
+    public class UpdateProductCommandValidator : AbstractValidator<UpdateProductCommandRequest>
     {
         public UpdateProductCommandValidator()
         {

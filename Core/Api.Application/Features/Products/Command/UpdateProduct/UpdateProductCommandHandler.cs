@@ -10,19 +10,19 @@ using System.Threading.Tasks;
 
 namespace Api.Application.Features.Products.Command.UpdateProduct
 {
-    public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommandRequest,Unit>
+    public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommandRequest, Unit>
     {
         private readonly IMapper mapper;
         private readonly IUnitOfWork unitOfWork;
 
-        public UpdateProductCommandHandler(IMapper mapper,IUnitOfWork unitOfWork)
+        public UpdateProductCommandHandler(IMapper mapper, IUnitOfWork unitOfWork)
         {
             this.mapper = mapper;
             this.unitOfWork = unitOfWork;
         }
         public async Task<Unit> Handle(UpdateProductCommandRequest request, CancellationToken cancellationToken)
         {
-            var product = await unitOfWork.GetReadRepository<Product>().GetAsync(x=>x.Id==request.Id && !x.IsDeleted);
+            var product = await unitOfWork.GetReadRepository<Product>().GetAsync(x => x.Id == request.Id && !x.IsDeleted);
 
             var map = mapper.Map<Product, UpdateProductCommandRequest>(request);
 
