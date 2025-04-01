@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Api.Application.Features.Products.Command.DeleteProduct
 {
-    public class DeleteProductCommandValidator :AbstractValidator<DeleteProductCommandRequest>
+    public class DeleteProductCommandValidator : AbstractValidator<DeleteProductCommandRequest>
     {
         public DeleteProductCommandValidator()
         {

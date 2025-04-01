@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Api.Application.Features.Products.Command.DeleteProduct
 {
-    public class DeleteProductCommandHandler : IRequestHandler<DeleteProductCommandRequest,Unit>
+    public class DeleteProductCommandHandler : IRequestHandler<DeleteProductCommandRequest, Unit>
     {
         private readonly IUnitOfWork unitOfWork;
 

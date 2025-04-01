@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Api.Application.Features.Products.Command.CreateProduct
 {
-    public class CreateProductCommandValidator :AbstractValidator<CreateProductCommandRequest>
+    public class CreateProductCommandValidator : AbstractValidator<CreateProductCommandRequest>
     {
         public CreateProductCommandValidator()
         {
