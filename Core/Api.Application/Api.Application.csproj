@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Features\Products\Command\CreateProduct\NewFolder\**" />
+    <EmbeddedResource Remove="Features\Products\Command\CreateProduct\NewFolder\**" />
+    <None Remove="Features\Products\Command\CreateProduct\NewFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FluentValidation" Version="11.11.0" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.11.0" />
     <PackageReference Include="MediatR" Version="12.4.1" />
@@ -21,7 +27,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Products\Command\CreateProduct\NewFolder\" />
+    <Folder Include="Features\Auth\Exeptions\" />
+    <Folder Include="Features\Auth\Queries\" />
   </ItemGroup>
 
 </Project>
