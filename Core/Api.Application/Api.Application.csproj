@@ -27,7 +27,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Auth\Exeptions\" />
     <Folder Include="Features\Auth\Queries\" />
   </ItemGroup>
 

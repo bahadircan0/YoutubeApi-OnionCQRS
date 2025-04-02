@@ -3,6 +3,7 @@ using Api.Application.Features.Products.Command.DeleteProduct;
 using Api.Application.Features.Products.Command.UpdateProduct;
 using Api.Application.Features.Products.Queries.GetAllProducts;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,6 +21,7 @@ namespace Api.Api.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> GetAllProduct()
         {
             

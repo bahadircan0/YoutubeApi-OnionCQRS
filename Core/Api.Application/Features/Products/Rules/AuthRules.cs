@@ -1,4 +1,5 @@
 ﻿using Api.Application.Bases;
+using Api.Application.Features.Auth.Exeptions;
 using Api.Application.Features.Products.Exceptions;
 using Api.Domain.Entities;
 using System;
@@ -17,6 +18,12 @@ namespace Api.Application.Features.Products.Rules
             {
                 throw new UserAlreadyExistException();
             }
+            return Task.CompletedTask;
+        }
+
+        public Task EmailOrPasswordShouldNotBeInvalid(User? user, bool checkPassword)
+        {
+            if (user is null || !checkPassword) throw new EmailOrPasswordShouldNotBeInvalidException();
             return Task.CompletedTask;
         }
     }
